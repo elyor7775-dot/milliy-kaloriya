@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=fa65eb9c-9686-4596-b293-e9d9437fcde1
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milliy Kaloriya — O'zbek Milliy Taomlar va BJU Nazorati</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        lapis: {
+                            950: '#071730',
+                            900: '#0F2C59',
+                            800: '#163B73',
+                            700: '#1B4965',
+                            100: '#E6EEF8',
+                            50: '#F3F7FC',
+                        },
+                        feruza: {
+                            700: '#0E7490',
+                            600: '#148299',
+                            500: '#189AB4',
+                            100: '#E0F4F8',
+                            50: '#F0FAFC',
+                        },
+                        terrakota: {
+                            700: '#9E4221',
+                            600: '#B54D28',
+                            500: '#C85A32',
+                            100: '#FAEAE4',
+                            50: '#FDF5F2',
+                        },
+                        oltin: {
+                            600: '#B88928',
+                            500: '#D4A338',
+                            400: '#E5BC5E',
+                            100: '#FBF3E0',
+                            50: '#FEFBF3',
+                        },
+                        ipak: {
+                            50: '#FAF6EE',
+                            100: '#F3ECE0',
+                            200: '#E6DCC8',
+                            300: '#D5C6AA',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF6EE;
+            color: #0F2C59;
+            background-image: radial-gradient(rgba(212, 163, 56, 0.14) 1px, transparent 1px),
+                              radial-gradient(rgba(15, 44, 89, 0.06) 1px, #FAF6EE 1px);
+            background-size: 36px 36px;
+            background-position: 0 0, 18px 18px;
+        }
+
+        /* Subtle Girih / Geometric Ornamental Pattern Overlay */
+        .girih-header-bg {
+            background-color: #0F2C59;
+            background-image: 
+                linear-gradient(135deg, rgba(24, 154, 180, 0.18) 0%, rgba(15, 44, 89, 0.96) 55%, rgba(27, 73, 101, 0.98) 100%),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23D4A338' stroke-width='1' stroke-opacity='0.22'%3E%3Cpath d='M40 0L51.7 28.3L80 40L51.7 51.7L40 80L28.3 51.7L0 40L28.3 28.3Z'/%3E%3Crect x='14' y='14' width='52' height='52'/%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Rishton Ceramic Tile Border Strip */
+        .rishton-border {
+            height: 8px;
+            width: 100%;
+            background-color: #0F2C59;
+            background-image: url("data:image/svg+xml,%3Csvg width='48' height='8' viewBox='0 0 48 8' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='48' height='8' fill='%230F2C59'/%3E%3Cpath d='M0 4L6 0L12 4L6 8Z' fill='%23D4A338'/%3E%3Cpath d='M12 4L18 0L24 4L18 8Z' fill='%23189AB4'/%3E%3Cpath d='M24 4L30 0L36 4L30 8Z' fill='%23C85A32'/%3E%3Cpath d='M36 4L42 0L48 4L42 8Z' fill='%23FAF6EE'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .food-card {
+            transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+        .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 34px -12px rgba(15, 44, 89, 0.16);
+            border-color: #D4A338;
+        }
+
+        .food-card:hover .food-img {
+            transform: scale(1.06);
+        }
+        .food-img {
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-entry {
+            animation: fadeSlideUp 0.32s ease-out forwards;
+        }
+
+        circle {
+            transition: stroke-dasharray 0.65s cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 8px;
+            border-radius: 999px;
+            background: #E6DCC8;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #0F2C59;
+            border: 3px solid #D4A338;
+            margin-top: -6px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(15,44,89,0.25);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-oltin-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+    <!-- Top Ornamental Rishton Tile Strip -->
+    <div class="rishton-border"></div>
+
+    <!-- Header / Navbar with Samarqand Lapis & Girih Pattern -->
+    <header class="girih-header-bg text-white sticky top-0 z-30 shadow-lg border-b border-oltin-500/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-22 py-3.5 flex items-center justify-between gap-3">
+            <!-- Brand Identity with Uzbek Arch Crest -->
+            <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-t-full rounded-b-xl bg-gradient-to-b from-oltin-400 to-oltin-600 p-0.5 shadow-md flex-shrink-0">
+                    <div class="w-full h-full rounded-t-full rounded-b-[10px] bg-lapis-900 flex items-center justify-center text-oltin-400">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 2L14.8 8.2L21.5 9.2L16.6 14L17.8 20.8L12 17.5L6.2 20.8L7.4 14L2.5 9.2L9.2 8.2L12 2Z" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.3"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-serif text-xl sm:text-2xl font-bold tracking-wide text-white leading-none">
+                            Milliy <span class="text-oltin-400">Kaloriya</span>
+                        </h1>
+                        <span class="hidden md:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest rounded bg-feruza-500/25 text-feruza-100 border border-feruza-500/40">
+                            Sog'lom Dasturxon
+                        </span>
+                    </div>
+                    <p class="text-xs text-ipak-200/90 mt-1 hidden sm:block">O'zbek milliy taomlari va kundalik ovqatlanish me'yori</p>
+                </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="openCalculatorModal()" class="flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-oltin-500/40 text-white font-semibold text-xs sm:text-sm transition-all backdrop-blur-sm">
+                    <i data-lucide="calculator" class="w-4 h-4 text-oltin-400"></i>
+                    <span class="hidden md:inline">Me'yor:</span>
+                    <strong id="header-goal-val" class="text-oltin-400 font-bold">2200</strong>
+                    <span class="text-ipak-200 text-xs">kkal</span>
+                </button>
+                <button onclick="openAddFoodModal()" class="flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-oltin-500 to-oltin-600 hover:from-oltin-400 hover:to-oltin-500 text-lapis-950 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Taom qo'shish</span>
+                    <span class="sm:hidden">Yangi</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs Bar -->
+        <div class="bg-lapis-950/40 backdrop-blur-md border-t border-oltin-500/20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto no-scrollbar py-2.5">
+                <button onclick="switchTab('diary')" id="tab-btn-diary" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-oltin-500 text-lapis-950 transition-all flex-shrink-0 shadow-sm">
+                    <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                    <span>Kundalik Hisoblagich</span>
+                </button>
+                <button onclick="switchTab('catalog')" id="tab-btn-catalog" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white transition-all flex-shrink-0">
+                    <i data-lucide="utensils" class="w-4 h-4"></i>
+                    <span>Mahsulotlar Bazasi</span>
+                </button>
+                <button onclick="switchTab('planner')" id="tab-btn-planner" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white transition-all flex-shrink-0">
+                    <i data-lucide="calendar-days" class="w-4 h-4"></i>
+                    <span>Haftalik Menyu</span>
+                </button>
+                <button onclick="switchTab('advisor')" id="tab-btn-advisor" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white transition-all flex-shrink-0">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-oltin-400"></i>
+                    <span>AI Maslahatchi</span>
+                </button>
+                <button onclick="switchTab('favorites')" id="tab-btn-favorites" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white transition-all flex-shrink-0">
+                    <i data-lucide="heart" class="w-4 h-4 text-terrakota-500"></i>
+                    <span>Sevimlilar (<span id="fav-tab-count">0</span>)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- ================= TAB 1: KUNDALIK HISOBLAGICH ================= -->
+        <div id="tab-content-diary" class="tab-pane grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+
+            <!-- LEFT COLUMN: Quick Search + Food Grid (7 cols) -->
+            <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+                <div class="bg-white/95 backdrop-blur-sm p-4 sm:p-6 rounded-3xl shadow-sm border border-ipak-200 relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <div class="relative flex-1">
+                            <i data-lucide="search" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-lapis-700/60"></i>
+                            <input 
+                                type="text" 
+                                id="search-input" 
+                                placeholder="Taom yoki mahsulotni izlang (masalan: Palov, Somsa, Anor)..." 
+                                class="w-full pl-11 pr-10 py-3 rounded-2xl bg-ipak-50/80 border border-ipak-200 text-lapis-900 placeholder-lapis-700/50 focus:outline-none focus:ring-2 focus:ring-oltin-500/40 focus:border-oltin-500 transition-all text-sm font-medium"
+                            >
+                            <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-ipak-200 hover:bg-ipak-300 text-lapis-900 flex items-center justify-center transition-colors">
+                                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                        <div class="relative sm:w-52">
+                            <i data-lucide="arrow-up-down" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-lapis-700/60 pointer-events-none"></i>
+                            <select id="sort-select" onchange="handleSortChange(this.value)" class="w-full pl-10 pr-4 py-3 rounded-2xl bg-ipak-50/80 border border-ipak-200 text-lapis-900 text-sm font-semibold focus:outline-none focus:border-oltin-500 appearance-none cursor-pointer">
+                                <option value="default">Saralash: Tavsiya etilgan</option>
+                                <option value="kcal-asc">Kaloriya: Kamdan ko'pga</option>
+                                <option value="kcal-desc">Kaloriya: Ko'pdan kamga</option>
+                                <option value="protein-desc">Oqsil: Eng yuqori</option>
+                                <option value="name-asc">Nomi: A — Z</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="category-filters" class="flex flex-wrap items-center gap-2 pt-4 pb-0.5"></div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-2 px-1">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-2.5 rotate-45 bg-oltin-500 inline-block"></span>
+                        <h2 class="font-serif text-lg sm:text-xl font-bold text-lapis-900">Mahsulotlar Dasturxoni</h2>
+                        <span id="food-count-badge" class="px-2.5 py-0.5 rounded-full bg-lapis-900 text-oltin-400 text-xs font-bold">0</span>
+                    </div>
+                    <button onclick="switchTab('catalog')" class="text-xs font-bold text-feruza-700 hover:underline flex items-center gap-1">
+                        <span>Barchasini ko'rish</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <div id="food-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+                
+                <div id="empty-search-state" class="hidden bg-white rounded-3xl p-10 text-center border border-ipak-200 shadow-sm">
+                    <div class="w-16 h-16 rounded-2xl bg-ipak-100 text-lapis-700 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="utensils-crossed" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-lapis-900 mb-1.5">Taom topilmadi</h3>
+                    <p class="text-sm text-lapis-700/75 mb-5 max-w-md mx-auto">Qidiruv so'rovi bo'yicha mahsulot topilmadi. Yangi milliy taomni kiritishingiz mumkin.</p>
+                    <button onclick="openAddFoodModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-semibold text-sm transition-colors">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span>Yangi taom kiritish</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Dashboard, Water & Log (5 cols) -->
+            <div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-6 lg:sticky lg:top-36">
+                <!-- Calorie Summary Card -->
+                <div class="bg-white rounded-3xl shadow-sm border border-ipak-200 overflow-hidden">
+                    <div class="bg-lapis-900 px-5 py-4 text-white flex items-center justify-between border-b-2 border-oltin-500">
+                        <div>
+                            <h2 class="font-serif text-lg font-bold tracking-wide text-white flex items-center gap-2">
+                                <i data-lucide="pie-chart" class="w-4 h-4 text-oltin-400"></i>
+                                Kunlik Hisobot
+                            </h2>
+                            <p id="current-date-display" class="text-xs text-ipak-200/80 mt-0.5"></p>
+                        </div>
+                        <button onclick="openCalculatorModal()" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-oltin-400 border border-oltin-500/30 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                            <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>
+                            <span>Me'yor</span>
+                        </button>
+                    </div>
+
+                    <div class="p-5 sm:p-6">
+                        <div class="bg-ipak-50 p-4 rounded-2xl border border-ipak-200 mb-5">
+                            <div class="flex items-end justify-between mb-2.5">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase tracking-wider text-lapis-700/70">Iste'mol qilindi</span>
+                                    <div class="flex items-baseline gap-1.5 mt-0.5">
+                                        <span id="total-calories" class="font-serif text-3xl font-extrabold text-lapis-900">0</span>
+                                        <span class="text-xs font-bold text-lapis-700/75">/ <span id="target-calories">2200</span> kkal</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span id="remaining-label" class="text-xs font-bold text-feruza-700 bg-feruza-100 px-2.5 py-1 rounded-lg border border-feruza-500/20">
+                                        Qoldi: 2200 kkal
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="w-full h-3 bg-ipak-200 rounded-full overflow-hidden p-0.5">
+                                <div id="calorie-progress-bar" class="h-full bg-gradient-to-r from-lapis-900 via-feruza-500 to-oltin-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Macro Doughnut & Stats -->
+                        <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-5">
+                            <div class="relative w-36 h-36 flex-shrink-0 flex items-center justify-center">
+                                <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="38" fill="transparent" stroke="#F3ECE0" stroke-width="11"></circle>
+                                    <circle id="ring-protein" cx="50" cy="50" r="38" fill="transparent" stroke="#1B4965" stroke-width="11" stroke-dasharray="0 238.76" stroke-dashoffset="0"></circle>
+                                    <circle id="ring-fat" cx="50" cy="50" r="38" fill="transparent" stroke="#C85A32" stroke-width="11" stroke-dasharray="0 238.76" stroke-dashoffset="0"></circle>
+                                    <circle id="ring-carbs" cx="50" cy="50" r="38" fill="transparent" stroke="#189AB4" stroke-width="11" stroke-dasharray="0 238.76" stroke-dashoffset="0"></circle>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                                    <span class="text-[10px] font-bold text-lapis-700/65 uppercase tracking-wider">Jami BJU</span>
+                                    <span id="total-macros-grams" class="font-serif text-base font-extrabold text-lapis-900">0 g</span>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 w-full grid grid-cols-3 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-1 gap-2">
+                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-lapis-50 border border-lapis-100">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rotate-45 bg-lapis-700"></span>
+                                        <span class="text-xs font-bold text-lapis-900">Oqsil</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="total-protein" class="text-xs font-extrabold text-lapis-900">0 g</span>
+                                        <span id="pct-protein" class="text-[10px] font-bold text-lapis-700 block">0%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-terrakota-50 border border-terrakota-100">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rotate-45 bg-terrakota-500"></span>
+                                        <span class="text-xs font-bold text-lapis-900">Yog'</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="total-fat" class="text-xs font-extrabold text-lapis-900">0 g</span>
+                                        <span id="pct-fat" class="text-[10px] font-bold text-terrakota-600 block">0%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-2.5 rounded-xl bg-feruza-50 border border-feruza-100">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rotate-45 bg-feruza-500"></span>
+                                        <span class="text-xs font-bold text-lapis-900">Uglevod</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span id="total-carbs" class="text-xs font-extrabold text-lapis-900">0 g</span>
+                                        <span id="pct-carbs" class="text-[10px] font-bold text-feruza-700 block">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Water Tracker -->
+                <div class="bg-white p-5 rounded-3xl shadow-sm border border-ipak-200">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-xl bg-feruza-100 text-feruza-700 flex items-center justify-center">
+                                <i data-lucide="droplets" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-base font-bold text-lapis-900 leading-tight">Suv Balansi</h3>
+                                <p class="text-[11px] text-lapis-700/70">1 piyola ≈ 250 ml</p>
+                            </div>
+                        </div>
+                        <span id="water-summary-text" class="text-xs font-extrabold text-feruza-700 bg-feruza-50 px-2.5 py-1 rounded-lg border border-feruza-100">0 / 8 piyola</span>
+                    </div>
+                    <div id="water-cups-grid" class="grid grid-cols-8 gap-1.5 pt-1"></div>
+                </div>
+
+                <!-- Consumed Meals Log + Export Report Button -->
+                <div class="bg-white p-5 sm:p-6 rounded-3xl shadow-sm border border-ipak-200 flex flex-col">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-ipak-200">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="scroll-text" class="w-4 h-4 text-oltin-600"></i>
+                            <h3 class="font-serif text-base font-bold text-lapis-900">Bugungi Dasturxon</h3>
+                            <span id="diary-count-badge" class="px-2 py-0.5 rounded-full bg-ipak-100 text-lapis-900 text-xs font-bold">0</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="openExportModal()" class="text-xs font-bold text-feruza-700 hover:text-feruza-800 hover:bg-feruza-50 px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1" title="Hisobotni nusxalash">
+                                <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                                <span>Eksport</span>
+                            </button>
+                            <button id="clear-diary-btn" onclick="openClearConfirmModal()" class="hidden text-xs font-bold text-terrakota-600 hover:bg-terrakota-50 px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                <span>Tozalash</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="diary-list" class="flex flex-col gap-4 max-h-[380px] overflow-y-auto pr-1"></div>
+
+                    <div id="empty-diary-state" class="py-8 text-center">
+                        <div class="w-12 h-12 rounded-2xl bg-ipak-100 text-oltin-600 flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="utensils" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-sm font-bold text-lapis-900">Dasturxon hali bo'sh</p>
+                        <p class="text-xs text-lapis-700/70 mt-1 max-w-xs mx-auto">Taomlarni tanlab, bugungi menyuga qo'shing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 2: MAHSULOTLAR BAZASI ================= -->
+        <div id="tab-content-catalog" class="tab-pane hidden flex flex-col gap-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-ipak-200">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-lapis-900">To'liq Mahsulotlar Bazasi (75+)</h2>
+                        <p class="text-xs text-lapis-700/70 mt-1">Barcha o'zbek milliy taomlari, shirinliklar, mevalar va ichimliklar katalogi</p>
+                    </div>
+                    <button onclick="openAddFoodModal()" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-bold text-sm shadow-md transition-all">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                        <span>Yangi Mahsulot Qo'shish</span>
+                    </button>
+                </div>
+                <!-- Categories for catalog tab -->
+                <div id="catalog-category-filters" class="flex flex-wrap items-center gap-2"></div>
+            </div>
+
+            <div id="catalog-food-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+        </div>
+
+        <!-- ================= TAB 3: HAFTALIK MENYU REJALASHTIRUVCHI ================= -->
+        <div id="tab-content-planner" class="tab-pane hidden flex flex-col gap-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-ipak-200">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 pb-4 border-b border-ipak-200">
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-lapis-900">Haftalik Menyu Rejalashtiruvchi</h2>
+                        <p class="text-xs text-lapis-700/70 mt-1">Haftaning harakati va kunlik ovqatlanishingizni oldindan rejalashtiring</p>
+                    </div>
+                    <div id="planner-week-summary" class="px-4 py-2 rounded-2xl bg-lapis-50 border border-lapis-100 text-xs font-bold text-lapis-900">
+                        O'rtacha kunlik: <span id="planner-avg-kcal" class="text-oltin-600">0</span> kkal
+                    </div>
+                </div>
+
+                <!-- Days tabs -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 mb-6" id="planner-days-tabs"></div>
+
+                <!-- Active Day Planner Container -->
+                <div class="bg-ipak-50 p-5 sm:p-6 rounded-2xl border border-ipak-200">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 id="planner-active-day-title" class="font-serif text-lg font-bold text-lapis-900">Dushanba</h3>
+                        <div class="flex items-center gap-3">
+                            <span id="planner-day-total" class="px-3 py-1 rounded-xl bg-lapis-900 text-oltin-400 text-xs font-bold">Jami: 0 kkal</span>
+                            <button onclick="openPlannerAddModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-oltin-500 hover:bg-oltin-400 text-lapis-950 font-bold text-xs transition-colors">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                <span>Taom qo'shish</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="planner-day-meals-list" class="flex flex-col gap-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 4: AI MASLAHATCHI ================= -->
+        <div id="tab-content-advisor" class="tab-pane hidden flex flex-col gap-6">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-ipak-200 max-w-3xl mx-auto w-full">
+                <div class="flex items-center gap-3.5 pb-6 border-b border-ipak-200">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-oltin-400 to-oltin-600 text-lapis-950 flex items-center justify-center shadow-md">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-lapis-900">O'zbekona AI Maslahatchi</h2>
+                        <p class="text-xs text-lapis-700/70">Bugungi dasturxoningiz va BJU nisbatingiz asosida shaxsiy tahlil va tavsiyalar</p>
+                    </div>
+                </div>
+
+                <div id="ai-advisor-content" class="py-6 flex flex-col gap-4">
+                    <!-- Injected via JS -->
+                </div>
+
+                <button onclick="refreshAIAdvice()" class="w-full py-3.5 rounded-2xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                    <span>Tahlilni yangilash va maslahat olish</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= TAB 5: SEVIMLILAR ARXIVI ================= -->
+        <div id="tab-content-favorites" class="tab-pane hidden flex flex-col gap-6">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-ipak-200">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-lapis-900">Sevimli Taomlar Arxivi</h2>
+                        <p class="text-xs text-lapis-700/70 mt-1">Yurakcha ⭐ bilan belgilangan doimiy sevimli taomlaringiz</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="favorites-food-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"></div>
+
+            <div id="empty-favorites-state" class="hidden bg-white rounded-3xl p-12 text-center border border-ipak-200 shadow-sm">
+                <div class="w-16 h-16 rounded-2xl bg-ipak-100 text-terrakota-500 flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="heart" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-lapis-900 mb-1.5">Sevimlilar ro'yxati bo'sh</h3>
+                <p class="text-sm text-lapis-700/75 mb-5 max-w-md mx-auto">Istalgan taom kartochkasidagi yurak tugmasini bosib, uni sevimlilarga qo'shishingiz mumkin.</p>
+                <button onclick="switchTab('catalog')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-semibold text-sm transition-colors">
+                    <i data-lucide="utensils" class="w-4 h-4"></i>
+                    <span>Mahsulotlar katalogiga o'tish</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Rishton Ceramic Border & Footer -->
+    <div class="rishton-border mt-10"></div>
+    <footer class="bg-lapis-900 text-ipak-200 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rotate-45 bg-oltin-400"></span>
+                <p><strong class="font-serif text-white text-sm">Milliy Kaloriya</strong> — O'zbek milliy taomlari va kundalik sog'lom ovqatlanish tizimi.</p>
+            </div>
+            <p class="text-ipak-200/70">Barcha ko'rsatkichlar va ma'lumotlar brauzer xotirasida saqlanadi.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 1: FOOD DETAILS & INTERACTIVE PORTION SLIDER        -->
+    <!-- ========================================================= -->
+    <div id="food-detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-lapis-950/65 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-oltin-500/40 animate-entry">
+            <div class="relative h-56 sm:h-64 bg-lapis-900">
+                <img id="detail-food-img" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-lapis-950/90 via-lapis-950/30 to-transparent"></div>
+                <button onclick="closeFoodDetailModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-lapis-950/70 hover:bg-lapis-900 text-white border border-white/20 flex items-center justify-center transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+                <div class="absolute bottom-4 left-5 right-5 text-white">
+                    <span id="detail-food-category" class="inline-block px-2.5 py-0.5 rounded-md bg-oltin-500 text-lapis-950 text-[11px] font-extrabold uppercase tracking-wider mb-1.5"></span>
+                    <h3 id="detail-food-name" class="font-serif text-2xl font-bold leading-tight"></h3>
+                    <p id="detail-food-serving-hint" class="text-xs text-ipak-200 mt-1 flex items-center gap-1.5">
+                        <i data-lucide="scale" class="w-3.5 h-3.5 text-oltin-400"></i>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-5 sm:p-6 flex flex-col gap-5">
+                <div class="bg-ipak-50 p-4 rounded-2xl border border-ipak-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="detail-gram-input" class="text-xs font-bold text-lapis-900 uppercase tracking-wider">Porsiya miqdori (gramm):</label>
+                        <div class="flex items-center gap-1.5">
+                            <input type="number" id="detail-gram-input" min="5" max="3000" value="250" oninput="updateDetailCalculations(this.value)" class="w-20 px-2.5 py-1 rounded-lg bg-white border border-oltin-500 text-right font-extrabold text-sm text-lapis-900 focus:outline-none">
+                            <span class="text-xs font-bold text-lapis-700">g</span>
+                        </div>
+                    </div>
+                    <input type="range" id="detail-gram-slider" min="20" max="1000" step="10" value="250" oninput="updateDetailCalculations(this.value)" class="w-full my-2">
+                    <div class="flex items-center justify-between gap-2 mt-2">
+                        <button type="button" onclick="updateDetailCalculations(100)" class="flex-1 py-1.5 rounded-lg bg-white hover:bg-oltin-50 border border-ipak-200 text-xs font-bold text-lapis-900 transition-colors">100 g</button>
+                        <button type="button" onclick="updateDetailCalculations(200)" class="flex-1 py-1.5 rounded-lg bg-white hover:bg-oltin-50 border border-ipak-200 text-xs font-bold text-lapis-900 transition-colors">200 g</button>
+                        <button type="button" onclick="updateDetailCalculations(350)" class="flex-1 py-1.5 rounded-lg bg-white hover:bg-oltin-50 border border-ipak-200 text-xs font-bold text-lapis-900 transition-colors">1 Porsiya (350g)</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-2.5 text-center">
+                    <div class="p-3 rounded-2xl bg-lapis-900 text-white">
+                        <span class="text-[10px] uppercase tracking-wider text-oltin-400 font-bold block">Kaloriya</span>
+                        <span id="detail-calc-kcal" class="font-serif text-lg sm:text-xl font-extrabold block mt-0.5">0</span>
+                        <span class="text-[10px] text-ipak-200">kkal</span>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-lapis-50 border border-lapis-100">
+                        <span class="text-[10px] uppercase tracking-wider text-lapis-700 font-bold block">Oqsil</span>
+                        <span id="detail-calc-protein" class="text-base sm:text-lg font-extrabold text-lapis-900 block mt-0.5">0g</span>
+                        <span class="text-[10px] text-lapis-700/70">gramm</span>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-terrakota-50 border border-terrakota-100">
+                        <span class="text-[10px] uppercase tracking-wider text-terrakota-700 font-bold block">Yog'</span>
+                        <span id="detail-calc-fat" class="text-base sm:text-lg font-extrabold text-terrakota-700 block mt-0.5">0g</span>
+                        <span class="text-[10px] text-terrakota-700/70">gramm</span>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-feruza-50 border border-feruza-100">
+                        <span class="text-[10px] uppercase tracking-wider text-feruza-700 font-bold block">Uglevod</span>
+                        <span id="detail-calc-carbs" class="text-base sm:text-lg font-extrabold text-feruza-700 block mt-0.5">0g</span>
+                        <span class="text-[10px] text-feruza-700/70">gramm</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                    <select id="detail-meal-time" class="px-3.5 py-3 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-bold text-lapis-900 focus:outline-none focus:border-oltin-500">
+                        <option value="Nonushta">Nonushta</option>
+                        <option value="Tushlik" selected>Tushlik</option>
+                        <option value="Kechki ovqat">Kechki ovqat</option>
+                        <option value="Tamaddi">Tamaddi</option>
+                    </select>
+                    <button type="button" onclick="confirmAddFromDetailModal()" class="flex-1 py-3 px-5 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                        <span>Bugungi dasturxonga qo'shish</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 2: PERSONAL BMR / TDEE CALCULATOR                   -->
+    <!-- ========================================================= -->
+    <div id="calculator-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-lapis-950/65 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-oltin-500/40 animate-entry max-h-[92vh] overflow-y-auto">
+            <div class="bg-lapis-900 px-6 py-4 text-white flex items-center justify-between border-b-2 border-oltin-500">
+                <div class="flex items-center gap-2.5">
+                    <i data-lucide="calculator" class="w-5 h-5 text-oltin-400"></i>
+                    <h3 class="font-serif text-lg font-bold">Shaxsiy Kaloriya Me'yori</h3>
+                </div>
+                <button onclick="closeCalculatorModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <div class="p-6 flex flex-col gap-4">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-lapis-900 mb-1.5">Jinsingiz</label>
+                        <div class="grid grid-cols-2 gap-1.5 bg-ipak-50 p-1 rounded-xl border border-ipak-200">
+                            <button type="button" id="gender-male-btn" onclick="setCalcGender('male')" class="py-2 rounded-lg text-xs font-bold bg-lapis-900 text-oltin-400 transition-all">Erkak</button>
+                            <button type="button" id="gender-female-btn" onclick="setCalcGender('female')" class="py-2 rounded-lg text-xs font-bold text-lapis-700 hover:bg-white transition-all">Ayol</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-lapis-900 mb-1.5">Yoshingiz (yil)</label>
+                        <input type="number" id="calc-age" value="28" min="14" max="95" oninput="recalculateTDEE()" class="w-full px-3.5 py-2 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-bold text-lapis-900 focus:outline-none focus:border-oltin-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-lapis-900 mb-1.5">Bo'yingiz (sm)</label>
+                        <input type="number" id="calc-height" value="175" min="120" max="230" oninput="recalculateTDEE()" class="w-full px-3.5 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-bold text-lapis-900 focus:outline-none focus:border-oltin-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-lapis-900 mb-1.5">Vazningiz (kg)</label>
+                        <input type="number" id="calc-weight" value="75" min="35" max="220" oninput="recalculateTDEE()" class="w-full px-3.5 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-bold text-lapis-900 focus:outline-none focus:border-oltin-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-lapis-900 mb-1.5">Kunlik jismoniy faollik darajasi</label>
+                    <select id="calc-activity" onchange="recalculateTDEE()" class="w-full px-3.5 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-xs sm:text-sm font-semibold text-lapis-900 focus:outline-none focus:border-oltin-500">
+                        <option value="1.2">Kam harakatli (ofis ishi, mashg'ulotsiz)</option>
+                        <option value="1.375" selected>Yengil faollik (haftada 1-3 marta mashq)</option>
+                        <option value="1.55">O'rtacha faollik (haftada 3-5 marta sport)</option>
+                        <option value="1.725">Yuqori faollik (har kuni faol mashg'ulot)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-lapis-900 mb-1.5">Maqsadingiz</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" onclick="setCalcGoal('lose')" id="goal-lose-btn" class="p-2.5 rounded-xl border border-ipak-200 bg-ipak-50 text-left transition-all">
+                            <span class="text-xs font-extrabold text-lapis-900 block">Vazn tashlash</span>
+                            <span class="text-[11px] text-terrakota-600 font-semibold">-18% kaloriya</span>
+                        </button>
+                        <button type="button" onclick="setCalcGoal('maintain')" id="goal-maintain-btn" class="p-2.5 rounded-xl border-2 border-oltin-500 bg-oltin-50 text-left transition-all">
+                            <span class="text-xs font-extrabold text-lapis-900 block">Me'yorni saqlash</span>
+                            <span class="text-[11px] text-feruza-700 font-semibold">Barqaror vazn</span>
+                        </button>
+                        <button type="button" onclick="setCalcGoal('gain')" id="goal-gain-btn" class="p-2.5 rounded-xl border border-ipak-200 bg-ipak-50 text-left transition-all">
+                            <span class="text-xs font-extrabold text-lapis-900 block">Massa olish</span>
+                            <span class="text-[11px] text-lapis-700 font-semibold">+15% kaloriya</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-lapis-900 text-white p-4 rounded-2xl border border-oltin-500/50 flex items-center justify-between">
+                    <div>
+                        <span class="text-xs text-ipak-200 block">Tavsiya etilgan me'yor:</span>
+                        <div class="flex items-baseline gap-1.5 mt-0.5">
+                            <span id="calc-result-kcal" class="font-serif text-3xl font-extrabold text-oltin-400">2200</span>
+                            <span class="text-xs font-bold text-white">kkal / kun</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <label class="text-[10px] text-ipak-200 block mb-1">Yoki qo'lda kiriting:</label>
+                        <input type="number" id="manual-goal-input" min="800" max="10000" step="50" value="2200" class="w-24 px-2.5 py-1.5 rounded-lg bg-white/10 border border-oltin-400/50 text-right text-sm font-extrabold text-white focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 pt-1">
+                    <button type="button" onclick="closeCalculatorModal()" class="flex-1 py-3 rounded-xl bg-ipak-100 hover:bg-ipak-200 text-lapis-900 font-bold text-sm transition-colors">Bekor qilish</button>
+                    <button type="button" onclick="applyCalculatedGoal()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-oltin-500 to-oltin-600 hover:from-oltin-400 text-lapis-950 font-extrabold text-sm shadow-md transition-all">Me'yorni qo'llash</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 3: ADD CUSTOM DISH                                  -->
+    <!-- ========================================================= -->
+    <div id="add-food-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-lapis-950/65 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-oltin-500/40 animate-entry max-h-[92vh] overflow-y-auto">
+            <div class="bg-lapis-900 px-6 py-4 text-white flex items-center justify-between border-b-2 border-oltin-500">
+                <div class="flex items-center gap-2.5">
+                    <i data-lucide="utensils" class="w-5 h-5 text-oltin-400"></i>
+                    <h3 class="font-serif text-lg font-bold">Yangi Taom Qo'shish</h3>
+                </div>
+                <button onclick="closeAddFoodModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <form id="custom-food-form" onsubmit="handleAddCustomFood(event)" class="p-6 flex flex-col gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-lapis-900 mb-1.5">Taom nomi *</label>
+                    <input type="text" id="new-food-name" placeholder="Masalan: Xorazm tuxum barak" class="w-full px-3.5 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-medium focus:outline-none focus:border-oltin-500" required>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-lapis-900 mb-1.5">Toifa</label>
+                        <select id="new-food-category" class="w-full px-3 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-xs sm:text-sm font-semibold focus:outline-none focus:border-oltin-500">
+                            <option value="Milliy taomlar">Milliy taomlar</option>
+                            <option value="Suyuq taomlar">Suyuq taomlar</option>
+                            <option value="Non va pishiriqlar">Non va pishiriqlar</option>
+                            <option value="Kabob va go'shtlar">Kabob va go'shtlar</option>
+                            <option value="Salatlar">Salatlar</option>
+                            <option value="Sut mahsulotlari">Sut mahsulotlari</option>
+                            <option value="Mevalar">Mevalar</option>
+                            <option value="Sabzavot va donlar">Sabzavot va donlar</option>
+                            <option value="Yong'oq va shirinliklar">Yong'oq va shirinliklar</option>
+                            <option value="Ichimliklar">Ichimliklar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-lapis-900 mb-1.5">1 porsiya izohi</label>
+                        <input type="text" id="new-food-serving" value="1 porsiya ≈ 250g" class="w-full px-3 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-xs sm:text-sm font-medium focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-lapis-900 mb-1.5">Fotosurat URL (ixtiyoriy)</label>
+                    <input type="url" id="new-food-image" placeholder="https://images.unsplash.com/..." class="w-full px-3.5 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-xs font-medium focus:outline-none">
+                </div>
+                <div class="bg-ipak-50 p-4 rounded-2xl border border-ipak-200">
+                    <p class="text-xs font-extrabold text-lapis-900 mb-3 uppercase tracking-wider">100g mahsulot tarkibi:</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-lapis-900 mb-1">Kaloriya (kkal) *</label>
+                            <input type="number" step="0.1" min="0" max="2000" id="new-food-kcal" placeholder="240" class="w-full px-3 py-2 rounded-xl bg-white border border-ipak-200 text-sm font-bold focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lapis-700 mb-1">Oqsil (g) *</label>
+                            <input type="number" step="0.1" min="0" max="100" id="new-food-protein" placeholder="11.5" class="w-full px-3 py-2 rounded-xl bg-white border border-ipak-200 text-sm font-bold focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-terrakota-600 mb-1">Yog' (g) *</label>
+                            <input type="number" step="0.1" min="0" max="100" id="new-food-fat" placeholder="9.2" class="w-full px-3 py-2 rounded-xl bg-white border border-ipak-200 text-sm font-bold focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-feruza-700 mb-1">Uglevod (g) *</label>
+                            <input type="number" step="0.1" min="0" max="100" id="new-food-carbs" placeholder="26.0" class="w-full px-3 py-2 rounded-xl bg-white border border-ipak-200 text-sm font-bold focus:outline-none" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-1">
+                    <button type="button" onclick="closeAddFoodModal()" class="flex-1 py-3 rounded-xl bg-ipak-100 hover:bg-ipak-200 text-lapis-900 font-bold text-sm transition-colors">Bekor qilish</button>
+                    <button type="submit" class="flex-1 py-3 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-bold text-sm shadow-md transition-colors">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 4: PLANNER ADD MEAL MODAL                           -->
+    <!-- ========================================================= -->
+    <div id="planner-add-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-lapis-950/65 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-oltin-500/40 animate-entry p-6 flex flex-col gap-4">
+            <div class="flex items-center justify-between pb-3 border-b border-ipak-200">
+                <h3 class="font-serif text-lg font-bold text-lapis-900">Rejaga taom qo'shish</h3>
+                <button onclick="closePlannerAddModal()" class="w-7 h-7 rounded-full bg-ipak-100 hover:bg-ipak-200 flex items-center justify-center">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-lapis-900 mb-1">Ovqatlanish vaqti</label>
+                <select id="planner-modal-mealtime" class="w-full px-3 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-bold text-lapis-900">
+                    <option value="Nonushta">Nonushta</option>
+                    <option value="Tushlik" selected>Tushlik</option>
+                    <option value="Kechki ovqat">Kechki ovqat</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-lapis-900 mb-1">Taomni tanlang</label>
+                <select id="planner-modal-food-select" class="w-full px-3 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-medium text-lapis-900">
+                    <!-- Populated via JS -->
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-lapis-900 mb-1">Gramm miqdori</label>
+                <input type="number" id="planner-modal-grams" value="250" min="10" max="2000" class="w-full px-3.5 py-2.5 rounded-xl bg-ipak-50 border border-ipak-200 text-sm font-bold">
+            </div>
+            <div class="flex items-center gap-3 pt-2">
+                <button onclick="closePlannerAddModal()" class="flex-1 py-2.5 rounded-xl bg-ipak-100 text-lapis-900 font-bold text-sm">Bekor qilish</button>
+                <button onclick="confirmAddPlannerMeal()" class="flex-1 py-2.5 rounded-xl bg-lapis-900 text-oltin-400 font-bold text-sm shadow-md">Qo'shish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 5: EXPORT REPORT MODAL                              -->
+    <!-- ========================================================= -->
+    <div id="export-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-lapis-950/65 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-oltin-500/40 animate-entry p-6 flex flex-col gap-4">
+            <div class="flex items-center justify-between pb-3 border-b border-ipak-200">
+                <h3 class="font-serif text-lg font-bold text-lapis-900 flex items-center gap-2">
+                    <i data-lucide="share-2" class="w-4 h-4 text-feruza-600"></i>
+                    <span>Kunlik Hisobotni Eksport</span>
+                </h3>
+                <button onclick="closeExportModal()" class="w-7 h-7 rounded-full bg-ipak-100 flex items-center justify-center">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <div>
+                <p class="text-xs text-lapis-700/75 mb-2">Quyidagi matnni nusxalab Telegram yoki boshqa messenjerlarga yuborishingiz mumkin:</p>
+                <textarea id="export-text-area" readonly class="w-full h-44 p-3 rounded-xl bg-ipak-50 border border-ipak-200 text-xs font-mono text-lapis-900 focus:outline-none"></textarea>
+            </div>
+            <button onclick="copyExportText()" class="w-full py-3 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 font-bold text-sm shadow-md flex items-center justify-center gap-2">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>Matnni nusxalash</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 6: CLEAR CONFIRMATION                               -->
+    <!-- ========================================================= -->
+    <div id="clear-confirm-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-lapis-950/65 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-oltin-500/40 text-center animate-entry">
+            <div class="w-14 h-14 rounded-2xl bg-terrakota-100 text-terrakota-600 flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="trash-2" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-lapis-900 mb-1.5">Dasturxonni tozalaysizmi?</h3>
+            <p class="text-sm text-lapis-700/75 mb-6">Bugungi menyuga kiritilgan barcha taomlar o'chiriladi.</p>
+            <div class="flex items-center gap-3">
+                <button onclick="closeClearConfirmModal()" class="flex-1 py-2.5 rounded-xl bg-ipak-100 hover:bg-ipak-200 text-lapis-900 font-bold text-sm">Yo'q</button>
+                <button onclick="confirmClearDiary()" class="flex-1 py-2.5 rounded-xl bg-terrakota-600 hover:bg-terrakota-700 text-white font-bold text-sm shadow-md">Ha, tozalash</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT LOGIC                                          -->
+    <!-- ========================================================= -->
+    <script>
+        // --- DATA & STATE ---
+        const CATEGORY_FALLBACK_IMAGES = {
+            "Milliy taomlar": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=800&q=80",
+            "Suyuq taomlar": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+            "Non va pishiriqlar": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+            "Kabob va go'shtlar": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
+            "Salatlar": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+            "Sut mahsulotlari": "https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=800&q=80",
+            "Mevalar": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&q=80",
+            "Sabzavot va donlar": "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80",
+            "Yong'oq va shirinliklar": "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=800&q=80",
+            "Ichimliklar": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=800&q=80"
+        };
+
+        const DEFAULT_FOODS = [
+            { id: 'f1', name: "Toshkent To'y Oshi", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=800&q=80", defaultGram: 350, servingHint: "1 porsiya ≈ 350g", kcal: 252, protein: 7.8, fat: 13.4, carbs: 25.2 },
+            { id: 'f2', name: "Samarqand Zig'ir Palovi", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=80", defaultGram: 350, servingHint: "1 porsiya ≈ 350g", kcal: 238, protein: 7.4, fat: 11.9, carbs: 25.5 },
+            { id: 'f3', name: "Bug'da pishgan Manti", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80", defaultGram: 320, servingHint: "4 dona ≈ 320g", kcal: 218, protein: 10.4, fat: 9.2, carbs: 23.5 },
+            { id: 'f4', name: "Qozonkabob", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80", defaultGram: 350, servingHint: "1 porsiya ≈ 350g", kcal: 272, protein: 13.5, fat: 17.8, carbs: 14.2 },
+            { id: 'f5', name: "Toshkent Norini", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=800&q=80", defaultGram: 250, servingHint: "1 likopcha ≈ 250g", kcal: 265, protein: 12.2, fat: 13.5, carbs: 24.0 },
+            { id: 'f6', name: "Sabzavotli Dimlama", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80", defaultGram: 350, servingHint: "1 porsiya ≈ 350g", kcal: 124, protein: 6.1, fat: 6.4, carbs: 10.5 },
+            { id: 'f7', name: "Chuchvara (qaynatilgan)", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=800&q=80", defaultGram: 300, servingHint: "1 kosa ≈ 300g", kcal: 185, protein: 8.6, fat: 6.4, carbs: 23.2 },
+            { id: 'f8', name: "Xonim (kartoshkali)", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?auto=format&fit=crop&w=800&q=80", defaultGram: 280, servingHint: "1 porsiya ≈ 280g", kcal: 192, protein: 6.9, fat: 7.4, carbs: 24.6 },
+            { id: 'f9', name: "Jizzax Jizi", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=800&q=80", defaultGram: 220, servingHint: "1 porsiya ≈ 220g", kcal: 318, protein: 19.5, fat: 26.2, carbs: 1.2 },
+            { id: 'f10', name: "Xorazm Tuxum Baragi", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80", defaultGram: 260, servingHint: "1 porsiya ≈ 260g", kcal: 176, protein: 7.4, fat: 6.8, carbs: 21.2 },
+            { id: 'f11', name: "Bosma (go'sht)", category: "Milliy taomlar", image: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=800&q=80", defaultGram: 350, servingHint: "1 porsiya ≈ 350g", kcal: 142, protein: 7.8, fat: 7.6, carbs: 10.4 },
+            { id: 'f12', name: "Mastava", category: "Suyuq taomlar", image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80", defaultGram: 380, servingHint: "1 kosa ≈ 380g", kcal: 98, protein: 4.5, fat: 4.2, carbs: 10.6 },
+            { id: 'f13', name: "Qaynatma Sho'rva", category: "Suyuq taomlar", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80", defaultGram: 400, servingHint: "1 kosa ≈ 400g", kcal: 85, protein: 5.2, fat: 4.8, carbs: 5.4 },
+            { id: 'f14', name: "Suyuq Cho'zma Lag'mon", category: "Suyuq taomlar", image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80", defaultGram: 380, servingHint: "1 kosa ≈ 380g", kcal: 148, protein: 6.4, fat: 6.2, carbs: 16.8 },
+            { id: 'f15', name: "Moshxo'rda", category: "Suyuq taomlar", image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80", defaultGram: 380, servingHint: "1 kosa ≈ 380g", kcal: 112, protein: 5.4, fat: 4.1, carbs: 13.5 },
+            { id: 'f16', name: "Salqin Okroshka", category: "Suyuq taomlar", image: "https://images.unsplash.com/photo-1613844237701-8f3664fc2eff?auto=format&fit=crop&w=800&q=80", defaultGram: 350, servingHint: "1 kosa ≈ 350g", kcal: 64, protein: 3.4, fat: 2.8, carbs: 6.2 },
+            { id: 'f17', name: "Samarqand No'xat Sho'rva", category: "Suyuq taomlar", image: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&w=800&q=80", defaultGram: 380, servingHint: "1 kosa ≈ 380g", kcal: 126, protein: 6.8, fat: 5.2, carbs: 13.1 },
+            { id: 'f18', name: "Tandir Obi Non", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 bo'lak ≈ 150g", kcal: 262, protein: 7.8, fat: 1.5, carbs: 53.5 },
+            { id: 'f19', name: "Samarqand Patir Noni", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 bo'lak ≈ 150g", kcal: 315, protein: 7.5, fat: 8.4, carbs: 52.0 },
+            { id: 'f20', name: "Tandir Somsa", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80", defaultGram: 140, servingHint: "1 dona ≈ 140g", kcal: 295, protein: 9.8, fat: 16.5, carbs: 27.0 },
+            { id: 'f21', name: "Qatlama (sariyog'li)", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80", defaultGram: 120, servingHint: "1 dona ≈ 120g", kcal: 348, protein: 6.4, fat: 16.2, carbs: 44.1 },
+            { id: 'f22', name: "Yupqa", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80", defaultGram: 160, servingHint: "2 dona ≈ 160g", kcal: 245, protein: 9.4, fat: 10.8, carbs: 27.5 },
+            { id: 'f23', name: "Toshkent Gummasi", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80", defaultGram: 130, servingHint: "1 dona ≈ 130g", kcal: 288, protein: 8.6, fat: 14.9, carbs: 29.8 },
+            { id: 'f24', name: "Chalpak", category: "Non va pishiriqlar", image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80", defaultGram: 100, servingHint: "1 dona ≈ 100g", kcal: 332, protein: 6.2, fat: 15.4, carbs: 42.0 },
+            { id: 'f25', name: "Qiyma Shashlik", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80", defaultGram: 220, servingHint: "2 six ≈ 220g", kcal: 268, protein: 18.2, fat: 20.4, carbs: 2.1 },
+            { id: 'f26', name: "Jigar Kabob", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "2 six ≈ 200g", kcal: 235, protein: 19.6, fat: 15.8, carbs: 3.2 },
+            { id: 'f27', name: "Tovuq Kabob", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80", defaultGram: 220, servingHint: "2 six ≈ 220g", kcal: 178, protein: 22.4, fat: 9.2, carbs: 1.4 },
+            { id: 'f28', name: "Qaynatilgan Mol Go'shti", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 bo'lak ≈ 150g", kcal: 187, protein: 25.8, fat: 9.0, carbs: 0.0 },
+            { id: 'f29', name: "Tovuq Ko'kragi", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80", defaultGram: 180, servingHint: "1 bo'lak ≈ 180g", kcal: 137, protein: 29.8, fat: 1.8, carbs: 0.0 },
+            { id: 'f30', name: "Qazi / Ot Go'shti", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=800&q=80", defaultGram: 100, servingHint: "4 parrak ≈ 100g", kcal: 278, protein: 21.5, fat: 21.0, carbs: 0.4 },
+            { id: 'f31', name: "Qovurilgan Baliq", category: "Kabob va go'shtlar", image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 bo'lak ≈ 200g", kcal: 196, protein: 18.4, fat: 11.5, carbs: 4.2 },
+            { id: 'f32', name: "Achichuk (Shakarob)", category: "Salatlar", image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80", defaultGram: 180, servingHint: "1 likopcha ≈ 180g", kcal: 32, protein: 1.0, fat: 0.3, carbs: 6.2 },
+            { id: 'f33', name: "Olivye Salati", category: "Salatlar", image: "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?auto=format&fit=crop&w=800&q=80", defaultGram: 180, servingHint: "1 porsiya ≈ 180g", kcal: 198, protein: 5.4, fat: 15.6, carbs: 9.2 },
+            { id: 'f34', name: "Bahor Salati", category: "Salatlar", image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80", defaultGram: 160, servingHint: "1 porsiya ≈ 160g", kcal: 68, protein: 2.1, fat: 4.6, carbs: 4.8 },
+            { id: 'f35', name: "Markopcha (Sabzi salat)", category: "Salatlar", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 likopcha ≈ 150g", kcal: 118, protein: 1.3, fat: 8.2, carbs: 9.8 },
+            { id: 'f36', name: "Baqlajon Salati", category: "Salatlar", image: "https://images.unsplash.com/photo-1607532941433-304659e8198a?auto=format&fit=crop&w=800&q=80", defaultGram: 170, servingHint: "1 porsiya ≈ 170g", kcal: 134, protein: 1.8, fat: 9.6, carbs: 9.5 },
+            { id: 'f37', name: "Yunoncha Salat", category: "Salatlar", image: "https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 porsiya ≈ 200g", kcal: 105, protein: 3.8, fat: 8.1, carbs: 4.3 },
+            { id: 'f38', name: "Tabiiy Tvorog (5%)", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 kosa ≈ 150g", kcal: 121, protein: 17.2, fat: 5.0, carbs: 1.8 },
+            { id: 'f39', name: "Kefir (2.5%)", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80", defaultGram: 250, servingHint: "1 stakan ≈ 250g", kcal: 53, protein: 2.9, fat: 2.5, carbs: 4.0 },
+            { id: 'f40', name: "Uy Qatig'i", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 piyola ≈ 200g", kcal: 62, protein: 3.2, fat: 3.2, carbs: 4.5 },
+            { id: 'f41', name: "Quyuq Suzma", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 piyola ≈ 150g", kcal: 115, protein: 8.6, fat: 6.8, carbs: 4.4 },
+            { id: 'f42', name: "Yangi Qaymoq", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80", defaultGram: 50, servingHint: "2 qoshiq ≈ 50g", kcal: 292, protein: 2.5, fat: 30.0, carbs: 3.2 },
+            { id: 'f43', name: "Qattiq Pishloq", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=800&q=80", defaultGram: 50, servingHint: "2 tilim ≈ 50g", kcal: 352, protein: 26.0, fat: 26.8, carbs: 0.0 },
+            { id: 'f44', name: "Tabiiy Sariyog'", category: "Sut mahsulotlari", image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=800&q=80", defaultGram: 20, servingHint: "1 bo'lak ≈ 20g", kcal: 748, protein: 0.5, fat: 82.5, carbs: 0.8 },
+            { id: 'f45', name: "Quva Anori", category: "Mevalar", image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 piyola ≈ 150g", kcal: 83, protein: 1.7, fat: 1.2, carbs: 18.7 },
+            { id: 'f46', name: "Mirzacho'l Qovuni", category: "Mevalar", image: "https://images.unsplash.com/photo-1571575173700-afb9492e6a50?auto=format&fit=crop&w=800&q=80", defaultGram: 250, servingHint: "2 tilim ≈ 250g", kcal: 35, protein: 0.6, fat: 0.3, carbs: 7.4 },
+            { id: 'f47', name: "Qizil Tarvuz", category: "Mevalar", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80", defaultGram: 300, servingHint: "2 tilim ≈ 300g", kcal: 30, protein: 0.6, fat: 0.2, carbs: 7.6 },
+            { id: 'f48', name: "Kishmish va Uzum", category: "Mevalar", image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 shingil ≈ 150g", kcal: 69, protein: 0.7, fat: 0.2, carbs: 18.1 },
+            { id: 'f49', name: "Qizil Olma", category: "Mevalar", image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=800&q=80", defaultGram: 160, servingHint: "1 dona ≈ 160g", kcal: 52, protein: 0.3, fat: 0.2, carbs: 13.8 },
+            { id: 'f50', name: "Banan", category: "Mevalar", image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=800&q=80", defaultGram: 120, servingHint: "1 dona ≈ 120g", kcal: 89, protein: 1.1, fat: 0.3, carbs: 22.8 },
+            { id: 'f51', name: "O'rik", category: "Mevalar", image: "https://images.unsplash.com/photo-1592681814168-6df0fa93161b?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "4 dona ≈ 150g", kcal: 48, protein: 1.4, fat: 0.4, carbs: 11.1 },
+            { id: 'f52', name: "Xurmo", category: "Mevalar", image: "https://images.unsplash.com/photo-1604495772376-9657f0035eb5?auto=format&fit=crop&w=800&q=80", defaultGram: 160, servingHint: "1 dona ≈ 160g", kcal: 70, protein: 0.6, fat: 0.2, carbs: 18.6 },
+            { id: 'f53', name: "Shaftoli", category: "Mevalar", image: "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 dona ≈ 150g", kcal: 39, protein: 0.9, fat: 0.3, carbs: 9.5 },
+            { id: 'f54', name: "Grechka Bo'tqasi", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 porsiya ≈ 200g", kcal: 110, protein: 4.2, fat: 1.1, carbs: 21.3 },
+            { id: 'f55', name: "Oq Guruch", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 porsiya ≈ 200g", kcal: 130, protein: 2.7, fat: 0.3, carbs: 28.2 },
+            { id: 'f56', name: "Kartoshka Pyuresi", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 porsiya ≈ 200g", kcal: 106, protein: 2.1, fat: 3.8, carbs: 15.6 },
+            { id: 'f57', name: "Mosh", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1515543904379-3d757afe72e4?auto=format&fit=crop&w=800&q=80", defaultGram: 180, servingHint: "1 porsiya ≈ 180g", kcal: 105, protein: 7.0, fat: 0.4, carbs: 19.2 },
+            { id: 'f58', name: "No'xat", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 piyola ≈ 150g", kcal: 164, protein: 8.9, fat: 2.6, carbs: 27.4 },
+            { id: 'f59', name: "Pomidor", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 dona ≈ 150g", kcal: 18, protein: 0.9, fat: 0.2, carbs: 3.9 },
+            { id: 'f60', name: "Bodring", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 dona ≈ 150g", kcal: 15, protein: 0.7, fat: 0.1, carbs: 3.6 },
+            { id: 'f61', name: "Sabzi", category: "Sabzavot va donlar", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80", defaultGram: 120, servingHint: "1 dona ≈ 120g", kcal: 35, protein: 1.3, fat: 0.1, carbs: 6.9 },
+            { id: 'f62', name: "Bodom Mag'zi", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=800&q=80", defaultGram: 30, servingHint: "1 hovuch ≈ 30g", kcal: 579, protein: 21.2, fat: 49.9, carbs: 21.6 },
+            { id: 'f63', name: "Yunon Yong'og'i", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&w=800&q=80", defaultGram: 30, servingHint: "1 hovuch ≈ 30g", kcal: 654, protein: 15.2, fat: 65.2, carbs: 13.7 },
+            { id: 'f64', name: "Mayiz", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?auto=format&fit=crop&w=800&q=80", defaultGram: 40, servingHint: "1 hovuch ≈ 40g", kcal: 299, protein: 3.1, fat: 0.5, carbs: 79.2 },
+            { id: 'f65', name: "Tog' Asali", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80", defaultGram: 25, servingHint: "1 osh qoshiq ≈ 25g", kcal: 304, protein: 0.3, fat: 0.0, carbs: 82.4 },
+            { id: 'f66', name: "Samarqand Holvasi", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=800&q=80", defaultGram: 50, servingHint: "1 bo'lak ≈ 50g", kcal: 468, protein: 7.4, fat: 22.8, carbs: 58.2 },
+            { id: 'f67', name: "Buxoro Navvoti", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1581441363689-1f3c3c414635?auto=format&fit=crop&w=800&q=80", defaultGram: 25, servingHint: "2 bo'lak ≈ 25g", kcal: 382, protein: 0.0, fat: 0.0, carbs: 95.5 },
+            { id: 'f68', name: "Qo'qon Parvardasi", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=800&q=80", defaultGram: 40, servingHint: "4 dona ≈ 40g", kcal: 376, protein: 0.2, fat: 0.1, carbs: 93.8 },
+            { id: 'f69', name: "Chak-Chak", category: "Yong'oq va shirinliklar", image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80", defaultGram: 70, servingHint: "1 bo'lak ≈ 70g", kcal: 428, protein: 6.8, fat: 18.4, carbs: 58.6 },
+            { id: 'f70', name: "Ko'k Choy", category: "Ichimliklar", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 piyola ≈ 200ml", kcal: 1, protein: 0.0, fat: 0.0, carbs: 0.2 },
+            { id: 'f71', name: "Qora Choy (limonli)", category: "Ichimliklar", image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80", defaultGram: 200, servingHint: "1 piyola ≈ 200ml", kcal: 3, protein: 0.1, fat: 0.0, carbs: 0.7 },
+            { id: 'f72', name: "Ayron", category: "Ichimliklar", image: "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=800&q=80", defaultGram: 250, servingHint: "1 stakan ≈ 250ml", kcal: 27, protein: 1.4, fat: 1.5, carbs: 2.0 },
+            { id: 'f73', name: "Mevali Kompot", category: "Ichimliklar", image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80", defaultGram: 250, servingHint: "1 stakan ≈ 250ml", kcal: 48, protein: 0.2, fat: 0.0, carbs: 11.8 },
+            { id: 'f74', name: "Tabiiy Qahva", category: "Ichimliklar", image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80", defaultGram: 150, servingHint: "1 finjon ≈ 150ml", kcal: 2, protein: 0.2, fat: 0.0, carbs: 0.3 },
+            { id: 'f75', name: "Uy Limonnadi", category: "Ichimliklar", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80", defaultGram: 250, servingHint: "1 stakan ≈ 250ml", kcal: 36, protein: 0.1, fat: 0.0, carbs: 9.1 }
+        ];
+
+        const CATEGORIES = [
+            { id: 'all', label: 'Barchasi', icon: 'layout-grid' },
+            { id: 'Milliy taomlar', label: 'Milliy taomlar', icon: 'flame' },
+            { id: 'Suyuq taomlar', label: 'Suyuq taomlar', icon: 'soup' },
+            { id: 'Non va pishiriqlar', label: 'Non va pishiriqlar', icon: 'wheat' },
+            { id: "Kabob va go'shtlar", label: "Kabob va go'shtlar", icon: 'beef' },
+            { id: 'Salatlar', label: 'Salatlar', icon: 'salad' },
+            { id: 'Sut mahsulotlari', label: 'Sut mahsulotlari', icon: 'milk' },
+            { id: 'Mevalar', label: 'Mevalar', icon: 'apple' },
+            { id: 'Sabzavot va donlar', label: 'Sabzavot va donlar', icon: 'sprout' },
+            { id: "Yong'oq va shirinliklar", label: "Yong'oq va shirinliklar", icon: 'nut' },
+            { id: 'Ichimliklar', label: 'Ichimliklar', icon: 'cup-soda' }
+        ];
+
+        const DAYS_OF_WEEK = [
+            { id: 'dushanba', label: 'Dushanba' },
+            { id: 'seshanba', label: 'Seshanba' },
+            { id: 'chorshanba', label: 'Chorshanba' },
+            { id: 'payshanba', label: 'Payshanba' },
+            { id: 'juma', label: 'Juma' },
+            { id: 'shanba', label: 'Shanba' },
+            { id: 'yakshanba', label: 'Yakshanba' }
+        ];
+
+        let state = {
+            activeTab: 'diary',
+            foods: [],
+            diary: [],
+            favorites: [],
+            planner: {
+                dushanba: [], seshanba: [], chorshanba: [], payshanba: [], juma: [], shanba: [], yakshanba: []
+            },
+            dailyGoal: 2200,
+            waterCups: 0,
+            selectedCategory: 'all',
+            catalogCategory: 'all',
+            searchQuery: '',
+            sortBy: 'default',
+            activeDetailFood: null,
+            calcGender: 'male',
+            calcGoal: 'maintain',
+            plannerActiveDay: 'dushanba'
+        };
+
+        const STORAGE_KEYS = {
+            CUSTOM_FOODS: 'milliy_kaloriya_custom_v3',
+            DIARY: 'milliy_kaloriya_diary_v3',
+            FAVORITES: 'milliy_kaloriya_fav_v3',
+            PLANNER: 'milliy_kaloriya_planner_v3',
+            GOAL: 'milliy_kaloriya_goal_v3',
+            WATER: 'milliy_kaloriya_water_v3'
+        };
+
+        function loadState() {
+            try {
+                const savedCustom = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOM_FOODS)) || [];
+                state.foods = [...savedCustom, ...DEFAULT_FOODS];
+                state.diary = JSON.parse(localStorage.getItem(STORAGE_KEYS.DIARY)) || [];
+                state.favorites = JSON.parse(localStorage.getItem(STORAGE_KEYS.FAVORITES)) || [];
+                state.planner = JSON.parse(localStorage.getItem(STORAGE_KEYS.PLANNER)) || state.planner;
+                
+                const g = parseInt(localStorage.getItem(STORAGE_KEYS.GOAL), 10);
+                if (!isNaN(g)) state.dailyGoal = g;
+                const w = parseInt(localStorage.getItem(STORAGE_KEYS.WATER), 10);
+                if (!isNaN(w)) state.waterCups = w;
+            } catch (err) {
+                state.foods = [...DEFAULT_FOODS];
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem(STORAGE_KEYS.DIARY, JSON.stringify(state.diary));
+            localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(state.favorites));
+            localStorage.setItem(STORAGE_KEYS.PLANNER, JSON.stringify(state.planner));
+        }
+
+        // --- TABS SWITCHING ---
+        function switchTab(tabId) {
+            state.activeTab = tabId;
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+
+            // Button active styles
+            const tabs = ['diary', 'catalog', 'planner', 'advisor', 'favorites'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (!btn) return;
+                if (t === tabId) {
+                    btn.className = "flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-oltin-500 text-lapis-950 transition-all flex-shrink-0 shadow-sm";
+                } else {
+                    btn.className = "flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white transition-all flex-shrink-0";
+                }
+            });
+
+            if (tabId === 'catalog') renderCatalogGrid();
+            if (tabId === 'favorites') renderFavoritesGrid();
+            if (tabId === 'planner') renderPlannerView();
+            if (tabId === 'advisor') renderAIAdvisor();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        // --- INITIALIZATION ---
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            initDateDisplay();
+            renderCategories();
+            renderCatalogCategories();
+            renderFoodGrid();
+            renderWaterTracker();
+            renderDiaryAndSummary();
+            updateFavCount();
+            lucide.createIcons();
+        });
+
+        function initDateDisplay() {
+            const months = ["yanvar", "fevral", "mart", "aprel", "may", "iyun", "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"];
+            const now = new Date();
+            document.getElementById('current-date-display').textContent = `Bugun, ${now.getDate()}-${months[now.getMonth()]} ${now.getFullYear()}`;
+        }
+
+        function handleImageError(imgEl, category) {
+            const fallbackUrl = CATEGORY_FALLBACK_IMAGES[category] || CATEGORY_FALLBACK_IMAGES["Milliy taomlar"];
+            if (imgEl.src !== fallbackUrl) imgEl.src = fallbackUrl;
+            else imgEl.onerror = null;
+        }
+
+        // --- FAVORITES TOGGLE ---
+        function toggleFavorite(foodId) {
+            if (state.favorites.includes(foodId)) {
+                state.favorites = state.favorites.filter(id => id !== foodId);
+                showToast("Taom sevimlilardan olib tashlandi", "info");
+            } else {
+                state.favorites.push(foodId);
+                showToast("Taom sevimlilarga qo'shildi ⭐", "success");
+            }
+            localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(state.favorites));
+            updateFavCount();
+            renderFoodGrid();
+            if (state.activeTab === 'catalog') renderCatalogGrid();
+            if (state.activeTab === 'favorites') renderFavoritesGrid();
+        }
+
+        function updateFavCount() {
+            document.getElementById('fav-tab-count').textContent = state.favorites.length;
+        }
+
+        // --- RENDER CATEGORIES ---
+        function renderCategories() {
+            const container = document.getElementById('category-filters');
+            container.innerHTML = CATEGORIES.map(cat => {
+                const isActive = state.selectedCategory === cat.id;
+                const count = cat.id === 'all' ? state.foods.length : state.foods.filter(f => f.category === cat.id).length;
+                return `
+                    <button onclick="selectCategory('${cat.id}')" class="flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-bold whitespace-nowrap transition-all ${isActive ? 'bg-lapis-900 text-oltin-400 border-oltin-500 shadow-sm' : 'bg-ipak-50 text-lapis-900 hover:bg-ipak-100 border-ipak-200'}">
+                        <i data-lucide="${cat.icon}" class="w-3.5 h-3.5 ${isActive ? 'text-oltin-400' : 'text-lapis-700'}"></i>
+                        <span>${cat.label}</span>
+                        <span class="px-1.5 py-0.5 rounded-md text-[10px] font-extrabold ${isActive ? 'bg-oltin-500 text-lapis-950' : 'bg-ipak-200 text-lapis-800'}">${count}</span>
+                    </button>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function selectCategory(catId) {
+            state.selectedCategory = catId;
+            renderCategories();
+            renderFoodGrid();
+        }
+
+        // --- RENDER CATALOG CATEGORIES ---
+        function renderCatalogCategories() {
+            const container = document.getElementById('catalog-category-filters');
+            if (!container) return;
+            container.innerHTML = CATEGORIES.map(cat => {
+                const isActive = state.catalogCategory === cat.id;
+                return `
+                    <button onclick="selectCatalogCategory('${cat.id}')" class="flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs font-bold transition-all ${isActive ? 'bg-lapis-900 text-oltin-400 border-oltin-500' : 'bg-ipak-50 text-lapis-900 hover:bg-ipak-100 border-ipak-200'}">
+                        <span>${cat.label}</span>
+                    </button>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function selectCatalogCategory(catId) {
+            state.catalogCategory = catId;
+            renderCatalogCategories();
+            renderCatalogGrid();
+        }
+
+        // --- FOOD CARD HTML BUILDER ---
+        function buildFoodCardHTML(food) {
+            const isFav = state.favorites.includes(food.id);
+            const defaultG = food.defaultGram || 100;
+            return `
+                <article class="bg-white rounded-3xl border border-ipak-200 overflow-hidden shadow-sm food-card flex flex-col justify-between relative">
+                    <button onclick="toggleFavorite('${food.id}')" class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-lapis-950/70 hover:bg-lapis-900 backdrop-blur-sm flex items-center justify-center transition-colors text-white">
+                        <i data-lucide="heart" class="w-4 h-4 ${isFav ? 'fill-terrakota-500 text-terrakota-500' : 'text-white'}"></i>
+                    </button>
+                    <div>
+                        <div onclick="openFoodDetailModal('${food.id}')" class="relative h-44 bg-lapis-900 overflow-hidden cursor-pointer group">
+                            <img src="${food.image}" alt="${food.name}" loading="lazy" onerror="handleImageError(this, '${food.category}')" class="w-full h-full object-cover food-img">
+                            <div class="absolute inset-0 bg-gradient-to-t from-lapis-950/80 via-lapis-950/15 to-transparent"></div>
+                            <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-lapis-950/75 text-ipak-50 border border-white/15 text-[10px] font-bold">${food.category}</span>
+                            <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white">
+                                <span class="text-[11px] font-semibold text-ipak-100 flex items-center gap-1">
+                                    <i data-lucide="scale" class="w-3 h-3 text-oltin-400"></i>
+                                    ${food.servingHint || '100g uchun'}
+                                </span>
+                                <span class="px-2 py-0.5 rounded-lg bg-oltin-500 text-lapis-950 text-xs font-extrabold shadow-md">
+                                    ${food.kcal} kkal
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 pb-3">
+                            <h3 onclick="openFoodDetailModal('${food.id}')" class="font-serif text-base font-bold text-lapis-900 leading-snug line-clamp-2 cursor-pointer hover:text-terrakota-600 transition-colors mb-2.5">
+                                ${food.name}
+                            </h3>
+                            <div class="grid grid-cols-3 gap-1.5 bg-ipak-50 p-2 rounded-xl border border-ipak-200 text-center">
+                                <div><span class="block text-[10px] font-bold text-lapis-700">Oqsil</span><span class="text-xs font-extrabold text-lapis-900">${food.protein}g</span></div>
+                                <div class="border-x border-ipak-200"><span class="block text-[10px] font-bold text-terrakota-600">Yog'</span><span class="text-xs font-extrabold text-terrakota-700">${food.fat}g</span></div>
+                                <div><span class="block text-[10px] font-bold text-feruza-700">Uglevod</span><span class="text-xs font-extrabold text-feruza-700">${food.carbs}g</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4 pt-1 flex flex-col gap-2">
+                        <div class="flex items-center gap-1.5">
+                            <div class="relative flex-1">
+                                <input type="number" id="gram-input-${food.id}" value="${defaultG}" min="1" max="5000" class="w-full pl-2.5 pr-6 py-1.5 rounded-xl bg-ipak-50 border border-ipak-200 text-xs font-extrabold text-lapis-900 focus:outline-none focus:border-oltin-500">
+                                <span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-lapis-700/60">g</span>
+                            </div>
+                            <button type="button" onclick="setCardGrams('${food.id}', 100)" class="px-2 py-1.5 rounded-lg bg-ipak-100 hover:bg-oltin-100 text-[10px] font-bold text-lapis-900">100g</button>
+                            <button type="button" onclick="setCardGrams('${food.id}', ${defaultG})" class="px-2 py-1.5 rounded-lg bg-ipak-100 hover:bg-oltin-100 text-[10px] font-bold text-lapis-900">Porsiya</button>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <select id="meal-select-${food.id}" class="px-2 py-2 rounded-xl bg-ipak-50 border border-ipak-200 text-[11px] font-bold text-lapis-900 focus:outline-none">
+                                <option value="Nonushta">Nonushta</option>
+                                <option value="Tushlik" selected>Tushlik</option>
+                                <option value="Kechki ovqat">Kechki</option>
+                                <option value="Tamaddi">Tamaddi</option>
+                            </select>
+                            <button type="button" onclick="quickAddFood('${food.id}')" class="flex-1 py-2 px-3 rounded-xl bg-lapis-900 hover:bg-lapis-800 text-oltin-400 text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                <span>Qo'shish</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderFoodGrid() {
+            const grid = document.getElementById('food-grid');
+            const emptyState = document.getElementById('empty-search-state');
+            const badge = document.getElementById('food-count-badge');
+
+            const q = state.searchQuery.trim().toLowerCase();
+            let filtered = state.foods.filter(f => {
+                const matchCat = state.selectedCategory === 'all' || f.category === state.selectedCategory;
+                const matchQuery = f.name.toLowerCase().includes(q) || f.category.toLowerCase().includes(q);
+                return matchCat && matchQuery;
+            });
+
+            badge.textContent = filtered.length;
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(f => buildFoodCardHTML(f)).join('');
+            lucide.createIcons();
+        }
+
+        function renderCatalogGrid() {
+            const grid = document.getElementById('catalog-food-grid');
+            if (!grid) return;
+
+            let filtered = state.foods.filter(f => state.catalogCategory === 'all' || f.category === state.catalogCategory);
+            grid.innerHTML = filtered.map(f => buildFoodCardHTML(f)).join('');
+            lucide.createIcons();
+        }
+
+        function renderFavoritesGrid() {
+            const grid = document.getElementById('favorites-food-grid');
+            const emptyState = document.getElementById('empty-favorites-state');
+            if (!grid) return;
+
+            const favFoods = state.foods.filter(f => state.favorites.includes(f.id));
+            if (favFoods.length === 0) {
+                grid.innerHTML = '';
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+            grid.innerHTML = favFoods.map(f => buildFoodCardHTML(f)).join('');
+            lucide.createIcons();
+        }
+
+        function setCardGrams(foodId, grams) {
+            const input = document.getElementById(`gram-input-${foodId}`);
+            if (input) input.value = grams;
+        }
+
+        function quickAddFood(foodId) {
+            const food = state.foods.find(f => f.id === foodId);
+            if (!food) return;
+            const grams = parseFloat(document.getElementById(`gram-input-${foodId}`).value) || 100;
+            const mealTime = document.getElementById(`meal-select-${foodId}`).value;
+            addFoodEntry(food, grams, mealTime);
+        }
+
+        function addFoodEntry(food, grams, mealTime) {
+            const ratio = grams / 100;
+            const entry = {
+                entryId: 'entry_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+                foodId: food.id,
+                name: food.name,
+                image: food.image,
+                mealTime: mealTime || 'Tushlik',
+                grams: Math.round(grams),
+                kcal: Math.round(food.kcal * ratio * 10) / 10,
+                protein: Math.round(food.protein * ratio * 10) / 10,
+                fat: Math.round(food.fat * ratio * 10) / 10,
+                carbs: Math.round(food.carbs * ratio * 10) / 10
+            };
+            state.diary.unshift(entry);
+            saveData();
+            renderDiaryAndSummary();
+            showToast(`${food.name} (${entry.grams}g) dasturxonga qo'shildi`, "success");
+        }
+
+        function removeDiaryEntry(entryId) {
+            state.diary = state.diary.filter(item => item.entryId !== entryId);
+            saveData();
+            renderDiaryAndSummary();
+            showToast("Taom dasturxondan olib tashlandi", "info");
+        }
+
+        // --- DIARY & SUMMARY RENDERING ---
+        function renderDiaryAndSummary() {
+            const diaryList = document.getElementById('diary-list');
+            const emptyDiary = document.getElementById('empty-diary-state');
+            const clearBtn = document.getElementById('clear-diary-btn');
+            const badge = document.getElementById('diary-count-badge');
+
+            badge.textContent = state.diary.length;
+
+            let totalK = 0, totalP = 0, totalF = 0, totalC = 0;
+            state.diary.forEach(item => {
+                totalK += item.kcal; totalP += item.protein; totalF += item.fat; totalC += item.carbs;
+            });
+
+            const rK = Math.round(totalK);
+            const rP = Math.round(totalP * 10) / 10;
+            const rF = Math.round(totalF * 10) / 10;
+            const rC = Math.round(totalC * 10) / 10;
+
+            document.getElementById('header-goal-val').textContent = state.dailyGoal;
+            document.getElementById('target-calories').textContent = state.dailyGoal;
+            document.getElementById('total-calories').textContent = rK;
+
+            const rem = state.dailyGoal - rK;
+            const remLabel = document.getElementById('remaining-label');
+            const progBar = document.getElementById('calorie-progress-bar');
+            const pct = Math.min(100, Math.round((rK / state.dailyGoal) * 100));
+            progBar.style.width = `${pct}%`;
+
+            if (rem >= 0) {
+                remLabel.textContent = `Qoldi: ${rem} kkal`;
+                remLabel.className = "text-xs font-bold text-feruza-700 bg-feruza-100 px-2.5 py-1 rounded-lg border border-feruza-500/20";
+                progBar.className = "h-full bg-gradient-to-r from-lapis-900 via-feruza-500 to-oltin-500 rounded-full transition-all duration-500";
+            } else {
+                remLabel.textContent = `Ortiqcha: +${Math.abs(rem)} kkal`;
+                remLabel.className = "text-xs font-bold text-terrakota-700 bg-terrakota-100 px-2.5 py-1 rounded-lg border border-terrakota-500/20";
+                progBar.className = "h-full bg-gradient-to-r from-oltin-500 to-terrakota-600 rounded-full transition-all duration-500";
+            }
+
+            document.getElementById('total-protein').textContent = `${rP} g`;
+            document.getElementById('total-fat').textContent = `${rF} g`;
+            document.getElementById('total-carbs').textContent = `${rC} g`;
+            const totalM = rP + rF + rC;
+            document.getElementById('total-macros-grams').textContent = `${Math.round(totalM)} g`;
+
+            let pP = 0, pF = 0, pC = 0;
+            if (totalM > 0) {
+                pP = Math.round((rP / totalM) * 100);
+                pF = Math.round((rF / totalM) * 100);
+                pC = Math.max(0, 100 - pP - pF);
+            }
+            document.getElementById('pct-protein').textContent = `${pP}%`;
+            document.getElementById('pct-fat').textContent = `${pF}%`;
+            document.getElementById('pct-carbs').textContent = `${pC}%`;
+
+            // SVG Doughnut
+            const circ = 238.76;
+            const rP_el = document.getElementById('ring-protein');
+            const rF_el = document.getElementById('ring-fat');
+            const rC_el = document.getElementById('ring-carbs');
+            if (totalM === 0) {
+                rP_el.setAttribute('stroke-dasharray', `0 ${circ}`);
+                rF_el.setAttribute('stroke-dasharray', `0 ${circ}`);
+                rC_el.setAttribute('stroke-dasharray', `0 ${circ}`);
+            } else {
+                const lP = (rP / totalM) * circ, lF = (rF / totalM) * circ, lC = (rC / totalM) * circ;
+                rP_el.setAttribute('stroke-dasharray', `${lP} ${circ}`); rP_el.setAttribute('stroke-dashoffset', '0');
+                rF_el.setAttribute('stroke-dasharray', `${lF} ${circ}`); rF_el.setAttribute('stroke-dashoffset', `-${lP}`);
+                rC_el.setAttribute('stroke-dasharray', `${lC} ${circ}`); rC_el.setAttribute('stroke-dashoffset', `-${lP + lF}`);
+            }
+
+            // Diary group list
+            if (state.diary.length === 0) {
+                diaryList.innerHTML = '';
+                emptyDiary.classList.remove('hidden');
+                clearBtn.classList.add('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            emptyDiary.classList.add('hidden');
+            clearBtn.classList.remove('hidden');
+
+            const mealTimes = ['Nonushta', 'Tushlik', 'Kechki ovqat', 'Tamaddi'];
+            let html = '';
+            mealTimes.forEach(mTime => {
+                const items = state.diary.filter(d => (d.mealTime || 'Tushlik') === mTime);
+                if (items.length === 0) return;
+                const gK = Math.round(items.reduce((s, i) => s + i.kcal, 0));
+                html += `
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between px-1">
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-lapis-900 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rotate-45 bg-oltin-500"></span> ${mTime}
+                            </span>
+                            <span class="text-[11px] font-bold text-lapis-700">${gK} kkal</span>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            ${items.map(e => `
+                                <div class="flex items-center justify-between gap-2.5 p-2.5 rounded-2xl bg-ipak-50 hover:bg-ipak-100 border border-ipak-200 transition-colors">
+                                    <div class="flex items-center gap-2.5 min-w-0">
+                                        <img src="${e.image}" alt="${e.name}" onerror="handleImageError(this, 'Milliy taomlar')" class="w-11 h-11 rounded-xl object-cover border border-ipak-200 flex-shrink-0">
+                                        <div class="min-w-0">
+                                            <h4 class="text-xs font-bold text-lapis-900 truncate">${e.name}</h4>
+                                            <div class="text-[10px] font-semibold text-lapis-700/75 mt-0.5">
+                                                <span class="text-lapis-900 font-bold">${e.grams}g</span> • O:${e.protein}g Y:${e.fat}g U:${e.carbs}g
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 flex-shrink-0">
+                                        <span class="text-xs font-extrabold text-lapis-900 bg-oltin-100 border border-oltin-400/40 px-2 py-1 rounded-lg">${Math.round(e.kcal)} kkal</span>
+                                        <button onclick="removeDiaryEntry('${e.entryId}')" class="w-7 h-7 rounded-lg text-lapis-700/50 hover:text-terrakota-600 hover:bg-terrakota-50 flex items-center justify-center">
+                                            <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            diaryList.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        // --- WATER TRACKER ---
+        function renderWaterTracker() {
+            const container = document.getElementById('water-cups-grid');
+            const summaryText = document.getElementById('water-summary-text');
+            summaryText.textContent = `${state.waterCups} / 8 piyola (${state.waterCups * 250} ml)`;
+
+            let html = '';
+            for (let i = 1; i <= 8; i++) {
+                const filled = i <= state.waterCups;
+                html += `
+                    <button type="button" onclick="toggleWaterCup(${i})" class="h-10 rounded-xl border flex flex-col items-center justify-center transition-all ${filled ? 'bg-feruza-500 text-white border-feruza-600 shadow-sm scale-105' : 'bg-ipak-50 text-lapis-700/40 border-ipak-200 hover:border-feruza-400 hover:text-feruza-600'}">
+                        <i data-lucide="glass-water" class="w-4 h-4"></i>
+                    </button>
+                `;
+            }
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function toggleWaterCup(idx) {
+            state.waterCups = (state.waterCups === idx) ? idx - 1 : idx;
+            localStorage.setItem(STORAGE_KEYS.WATER, state.waterCups.toString());
+            renderWaterTracker();
+        }
+
+        // --- WEEKLY PLANNER ---
+        function renderPlannerView() {
+            const daysContainer = document.getElementById('planner-days-tabs');
+            daysContainer.innerHTML = DAYS_OF_WEEK.map(d => {
+                const isActive = state.plannerActiveDay === d.id;
+                const dayItems = state.planner[d.id] || [];
+                const dayKcal = Math.round(dayItems.reduce((s, i) => s + i.kcal, 0));
+                return `
+                    <button onclick="selectPlannerDay('${d.id}')" class="p-3 rounded-2xl border text-left transition-all ${isActive ? 'bg-lapis-900 text-white border-oltin-500 shadow-md' : 'bg-ipak-50 text-lapis-900 border-ipak-200 hover:bg-ipak-100'}">
+                        <span class="text-xs font-bold block">${d.label}</span>
+                        <span class="text-[11px] ${isActive ? 'text-oltin-400' : 'text-lapis-700'} font-extrabold mt-1 block">${dayKcal} kkal</span>
+                    </button>
+                `;
+            }).join('');
+
+            const activeDayObj = DAYS_OF_WEEK.find(d => d.id === state.plannerActiveDay);
+            document.getElementById('planner-active-day-title').textContent = activeDayObj ? activeDayObj.label : 'Kun';
+            
+            const items = state.planner[state.plannerActiveDay] || [];
+            const daySum = Math.round(items.reduce((s, i) => s + i.kcal, 0));
+            document.getElementById('planner-day-total').textContent = `Jami: ${daySum} kkal`;
+
+            // Calculate overall weekly avg
+            let totalW = 0;
+            DAYS_OF_WEEK.forEach(d => {
+                const dList = state.planner[d.id] || [];
+                totalW += dList.reduce((s, i) => s + i.kcal, 0);
+            });
+            document.getElementById('planner-avg-kcal').textContent = Math.round(totalW / 7);
+
+            const mealsList = document.getElementById('planner-day-meals-list');
+            if (items.length === 0) {
+                mealsList.innerHTML = `<p class="text-xs text-lapis-700/70 py-4 text-center">Bu kun uchun hali taom rejalashtirilmagan.</p>`;
+                return;
+            }
+
+            mealsList.innerHTML = items.map((item, idx) => `
+                <div class="flex items-center justify-between p-3 rounded-2xl bg-white border border-ipak-200">
+                    <div class="flex items-center gap-3">
+                        <img src="${item.image}" onerror="handleImageError(this, 'Milliy taomlar')" class="w-10 h-10 rounded-xl object-cover">
+                        <div>
+                            <span class="text-[10px] font-bold text-oltin-600 uppercase block">${item.mealTime}</span>
+                            <h4 class="text-xs font-bold text-lapis-900">${item.name} (${item.grams}g)</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-bold text-lapis-900">${Math.round(item.kcal)} kkal</span>
+                        <button onclick="removePlannerMeal('${state.plannerActiveDay}', ${idx})" class="w-7 h-7 rounded-lg text-terrakota-600 hover:bg-terrakota-50 flex items-center justify-center">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function selectPlannerDay(dayId) {
+            state.plannerActiveDay = dayId;
+            renderPlannerView();
+        }
+
+        function openPlannerAddModal() {
+            const select = document.getElementById('planner-modal-food-select');
+            select.innerHTML = state.foods.map(f => `<option value="${f.id}">${f.name} (${f.kcal} kkal/100g)</option>`).join('');
+            const modal = document.getElementById('planner-add-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closePlannerAddModal() {
+            const modal = document.getElementById('planner-add-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function confirmAddPlannerMeal() {
+            const foodId = document.getElementById('planner-modal-food-select').value;
+            const food = state.foods.find(f => f.id === foodId);
+            const mealTime = document.getElementById('planner-modal-mealtime').value;
+            const grams = parseFloat(document.getElementById('planner-modal-grams').value) || 250;
+            if (!food) return;
+
+            const ratio = grams / 100;
+            const entry = {
+                name: food.name,
+                image: food.image,
+                mealTime,
+                grams: Math.round(grams),
+                kcal: Math.round(food.kcal * ratio * 10) / 10,
+                protein: Math.round(food.protein * ratio * 10) / 10,
+                fat: Math.round(food.fat * ratio * 10) / 10,
+                carbs: Math.round(food.carbs * ratio * 10) / 10
+            };
+
+            state.planner[state.plannerActiveDay].push(entry);
+            saveData();
+            closePlannerAddModal();
+            renderPlannerView();
+            showToast("Haftalik rejaga taom qo'shildi", "success");
+        }
+
+        function removePlannerMeal(dayId, idx) {
+            state.planner[dayId].splice(idx, 1);
+            saveData();
+            renderPlannerView();
+            showToast("Rejadan taom olib tashlandi", "info");
+        }
+
+        // --- AI ADVISOR ---
+        function renderAIAdvisor() {
+            const container = document.getElementById('ai-advisor-content');
+            let totalK = 0, totalP = 0, totalF = 0, totalC = 0;
+            state.diary.forEach(i => { totalK += i.kcal; totalP += i.protein; totalF += i.fat; totalC += i.carbs; });
+
+            let adviceHTML = '';
+            const diff = state.dailyGoal - totalK;
+
+            if (state.diary.length === 0) {
+                adviceHTML = `
+                    <div class="p-5 rounded-2xl bg-lapis-50 border border-lapis-100 text-lapis-900 text-sm leading-relaxed">
+                        <p class="font-bold text-base mb-2 font-serif text-lapis-900">Assalomu alaykum! Xush kelibsiz.</p>
+                        <p>Bugun hali dasturxonga hech qanday taom kiritmadingiz. Taomlarni qo'shib boring, men sizning kaloriyangiz va BJU nisbatingizni tahlil qilib, o'zbekona foydali maslahatlar beraman!</p>
+                    </div>
+                `;
+            } else {
+                let statusMsg = '';
+                let tipMsg = '';
+                if (diff > 400) {
+                    statusMsg = `Bugun me'yordan biroz kam kaloriya (${Math.round(totalK)} kkal) iste'mol qildingiz.`;
+                    tipMsg = `Kechki ovqatga to'yimliroq milliy taom yoki tvorog, mevalar tanlashingiz mumkin.`;
+                } else if (diff >= -200 && diff <= 400) {
+                    statusMsg = `Ajoyib! Bugungi kaloriya balansingiz (${Math.round(totalK)} kkal) belgilangan me'yorga juda mos kelmoqda.`;
+                    tipMsg = `Sog'lom ovqatlanish qoidalariga rioya qilyapsiz, suv balansini unutmasangiz bas.`;
+                } else {
+                    statusMsg = `Diqqat: Bugungi kaloriya me'yori (${Math.round(totalK)} kkal) oshib ketdi.`;
+                    tipMsg = `Kechki payt yengilroq ko'k choy va salat bilan cheklansangiz maqsadga muvofiq bo'ladi.`;
+                }
+
+                adviceHTML = `
+                    <div class="p-5 rounded-2xl bg-lapis-50 border border-lapis-100 text-lapis-900 text-sm leading-relaxed flex flex-col gap-3">
+                        <div class="flex items-center gap-2 font-serif font-bold text-base text-oltin-600">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                            <span>O'zbekona Maslahatchi Tahlili</span>
+                        </div>
+                        <p><strong>Holat:</strong> ${statusMsg}</p>
+                        <p><strong>Tavsiya:</strong> ${tipMsg}</p>
+                        <div class="grid grid-cols-3 gap-2 pt-2 border-t border-lapis-100 text-center">
+                            <div class="p-2 rounded-xl bg-white"><span class="block text-[10px] text-lapis-700 font-bold">Oqsil</span><strong class="text-xs">${Math.round(totalP)}g</strong></div>
+                            <div class="p-2 rounded-xl bg-white"><span class="block text-[10px] text-terrakota-600 font-bold">Yog'</span><strong class="text-xs">${Math.round(totalF)}g</strong></div>
+                            <div class="p-2 rounded-xl bg-white"><span class="block text-[10px] text-feruza-700 font-bold">Uglevod</span><strong class="text-xs">${Math.round(totalC)}g</strong></div>
+                        </div>
+                    </div>
+                `;
+            }
+            container.innerHTML = adviceHTML;
+            lucide.createIcons();
+        }
+
+        function refreshAIAdvice() {
+            renderAIAdvisor();
+            showToast("AI Maslahatchi tahlili yangilandi", "success");
+        }
+
+        // --- EXPORT REPORT ---
+        function openExportModal() {
+            let totalK = 0, totalP = 0, totalF = 0, totalC = 0;
+            state.diary.forEach(i => { totalK += i.kcal; totalP += i.protein; totalF += i.fat; totalC += i.carbs; });
+
+            let report = `🍽 MILLIY KORIYA — KUNLIK HISOBOT\n`;
+            report += `📅 Sana: ${new Date().toLocaleDateString()}\n`;
+            report += `🎯 Maqsad: ${state.dailyGoal} kkal | Iste'mol: ${Math.round(totalK)} kkal\n`;
+            report += `----------------------------------------\n`;
+            state.diary.forEach((d, idx) => {
+                report += `${idx + 1}. [${d.mealTime}] ${d.name} — ${d.grams}g (${Math.round(d.kcal)} kkal)\n`;
+            });
+            report += `----------------------------------------\n`;
+            report += `💪 BJU: Oqsil: ${Math.round(totalP)}g | Yog': ${Math.round(totalF)}g | Uglevod: ${Math.round(totalC)}g\n`;
+            report += `💧 Suv: ${state.waterCups} piyola (${state.waterCups * 250} ml)\n`;
+
+            document.getElementById('export-text-area').value = report;
+            const modal = document.getElementById('export-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeExportModal() {
+            const modal = document.getElementById('export-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function copyExportText() {
+            const textarea = document.getElementById('export-text-area');
+            textarea.select();
+            document.execCommand('copy');
+            showToast("Hisobot matni nusxalandi!", "success");
+            closeExportModal();
+        }
+
+        // --- FOOD DETAIL MODAL ---
+        function openFoodDetailModal(foodId) {
+            const food = state.foods.find(f => f.id === foodId);
+            if (!food) return;
+            state.activeDetailFood = food;
+            const imgEl = document.getElementById('detail-food-img');
+            imgEl.src = food.image;
+            imgEl.onerror = () => handleImageError(imgEl, food.category);
+            document.getElementById('detail-food-category').textContent = food.category;
+            document.getElementById('detail-food-name').textContent = food.name;
+            document.getElementById('detail-food-serving-hint').querySelector('span').textContent = `100g da ${food.kcal} kkal • ${food.servingHint || ''}`;
+            updateDetailCalculations(food.defaultGram || 250);
+            const modal = document.getElementById('food-detail-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function updateDetailCalculations(val) {
+            const food = state.activeDetailFood;
+            if (!food) return;
+            const grams = Math.max(1, parseFloat(val) || 100);
+            document.getElementById('detail-gram-input').value = grams;
+            document.getElementById('detail-gram-slider').value = Math.min(1000, grams);
+            const ratio = grams / 100;
+            document.getElementById('detail-calc-kcal').textContent = Math.round(food.kcal * ratio);
+            document.getElementById('detail-calc-protein').textContent = `${(food.protein * ratio).toFixed(1)}g`;
+            document.getElementById('detail-calc-fat').textContent = `${(food.fat * ratio).toFixed(1)}g`;
+            document.getElementById('detail-calc-carbs').textContent = `${(food.carbs * ratio).toFixed(1)}g`;
+        }
+
+        function confirmAddFromDetailModal() {
+            const food = state.activeDetailFood;
+            if (!food) return;
+            const grams = parseFloat(document.getElementById('detail-gram-input').value) || 100;
+            const mealTime = document.getElementById('detail-meal-time').value;
+            addFoodEntry(food, grams, mealTime);
+            closeFoodDetailModal();
+        }
+
+        function closeFoodDetailModal() {
+            const modal = document.getElementById('food-detail-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            state.activeDetailFood = null;
+        }
+
+        // --- CALCULATOR MODAL ---
+        function openCalculatorModal() {
+            document.getElementById('manual-goal-input').value = state.dailyGoal;
+            recalculateTDEE();
+            const modal = document.getElementById('calculator-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeCalculatorModal() {
+            const modal = document.getElementById('calculator-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function setCalcGender(gender) {
+            state.calcGender = gender;
+            const m = document.getElementById('gender-male-btn'), f = document.getElementById('gender-female-btn');
+            if (gender === 'male') {
+                m.className = "py-2 rounded-lg text-xs font-bold bg-lapis-900 text-oltin-400 transition-all";
+                f.className = "py-2 rounded-lg text-xs font-bold text-lapis-700 hover:bg-white transition-all";
+            } else {
+                f.className = "py-2 rounded-lg text-xs font-bold bg-lapis-900 text-oltin-400 transition-all";
+                m.className = "py-2 rounded-lg text-xs font-bold text-lapis-700 hover:bg-white transition-all";
+            }
+            recalculateTDEE();
+        }
+
+        function setCalcGoal(goal) {
+            state.calcGoal = goal;
+            ['lose', 'maintain', 'gain'].forEach(g => {
+                const btn = document.getElementById(`goal-${g}-btn`);
+                btn.className = (g === goal) ? "p-2.5 rounded-xl border-2 border-oltin-500 bg-oltin-50 text-left transition-all" : "p-2.5 rounded-xl border border-ipak-200 bg-ipak-50 text-left transition-all";
+            });
+            recalculateTDEE();
+        }
+
+        function recalculateTDEE() {
+            const age = parseFloat(document.getElementById('calc-age').value) || 28;
+            const height = parseFloat(document.getElementById('calc-height').value) || 175;
+            const weight = parseFloat(document.getElementById('calc-weight').value) || 75;
+            const activity = parseFloat(document.getElementById('calc-activity').value) || 1.375;
+
+            let bmr = (10 * weight) + (6.25 * height) - (5 * age) + (state.calcGender === 'male' ? 5 : -161);
+            let tdee = bmr * activity;
+            if (state.calcGoal === 'lose') tdee *= 0.82;
+            if (state.calcGoal === 'gain') tdee *= 1.15;
+
+            const rec = Math.max(1100, Math.round(tdee / 10) * 10);
+            document.getElementById('calc-result-kcal').textContent = rec;
+            document.getElementById('manual-goal-input').value = rec;
+        }
+
+        function applyCalculatedGoal() {
+            const val = parseInt(document.getElementById('manual-goal-input').value, 10);
+            if (isNaN(val) || val < 800) return;
+            state.dailyGoal = val;
+            localStorage.setItem(STORAGE_KEYS.GOAL, val.toString());
+            closeCalculatorModal();
+            renderDiaryAndSummary();
+            showToast(`Shaxsiy me'yor: ${val} kkal saqlandi`, "success");
+        }
+
+        // --- CUSTOM FOOD MODAL ---
+        function openAddFoodModal() {
+            const modal = document.getElementById('add-food-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeAddFoodModal() {
+            const modal = document.getElementById('add-food-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('custom-food-form').reset();
+        }
+
+        function handleAddCustomFood(e) {
+            e.preventDefault();
+            const name = document.getElementById('new-food-name').value.trim();
+            const category = document.getElementById('new-food-category').value;
+            const servingHint = document.getElementById('new-food-serving').value.trim();
+            const customImg = document.getElementById('new-food-image').value.trim();
+            const kcal = parseFloat(document.getElementById('new-food-kcal').value);
+            const protein = parseFloat(document.getElementById('new-food-protein').value);
+            const fat = parseFloat(document.getElementById('new-food-fat').value);
+            const carbs = parseFloat(document.getElementById('new-food-carbs').value);
+
+            if (!name || isNaN(kcal)) return;
+
+            const image = customImg || CATEGORY_FALLBACK_IMAGES[category] || CATEGORY_FALLBACK_IMAGES["Milliy taomlar"];
+            const newFood = {
+                id: 'custom_' + Date.now(),
+                name, category, image, defaultGram: 250, servingHint: servingHint || "1 porsiya ≈ 250g",
+                kcal: Math.round(kcal * 10) / 10,
+                protein: Math.round(protein * 10) / 10,
+                fat: Math.round(fat * 10) / 10,
+                carbs: Math.round(carbs * 10) / 10
+            };
+
+            const customList = JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOM_FOODS)) || [];
+            customList.unshift(newFood);
+            localStorage.setItem(STORAGE_KEYS.CUSTOM_FOODS, JSON.stringify(customList));
+            state.foods.unshift(newFood);
+
+            closeAddFoodModal();
+            renderFoodGrid();
+            if (state.activeTab === 'catalog') renderCatalogGrid();
+            showToast(`"${name}" katalogga qo'shildi`, "success");
+        }
+
+        // --- CLEAR DIARY MODAL ---
+        function openClearConfirmModal() {
+            const modal = document.getElementById('clear-confirm-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+        function closeClearConfirmModal() {
+            const modal = document.getElementById('clear-confirm-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        function confirmClearDiary() {
+            state.diary = [];
+            saveData();
+            closeClearConfirmModal();
+            renderDiaryAndSummary();
+            showToast("Dasturxon tozalandi", "info");
+        }
+
+        // --- SEARCH INPUT LISTENER ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const sInput = document.getElementById('search-input');
+            if (sInput) {
+                sInput.addEventListener('input', (e) => {
+                    state.searchQuery = e.target.value;
+                    const clearBtn = document.getElementById('clear-search-btn');
+                    if (state.searchQuery.length > 0) clearBtn.classList.remove('hidden');
+                    else clearBtn.classList.add('hidden');
+                    renderFoodGrid();
+                });
+            }
+        });
+
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            state.searchQuery = '';
+            document.getElementById('clear-search-btn').classList.add('hidden');
+            renderFoodGrid();
+        }
+
+        function handleSortChange(val) {
+            state.sortBy = val;
+            if (val === 'kcal-asc') state.foods.sort((a,b) => a.kcal - b.kcal);
+            else if (val === 'kcal-desc') state.foods.sort((a,b) => b.kcal - a.kcal);
+            else if (val === 'protein-desc') state.foods.sort((a,b) => b.protein - a.protein);
+            else if (val === 'name-asc') state.foods.sort((a,b) => a.name.localeCompare(b.name));
+            renderFoodGrid();
+        }
+
+        // --- TOAST NOTIFICATIONS ---
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toast-container') || createToastContainer();
+            const toast = document.createElement('div');
+            let iconName = 'check-circle-2';
+            let accent = 'border-oltin-500 text-lapis-900';
+            if (type === 'error') { iconName = 'alert-circle'; accent = 'border-terrakota-500 text-terrakota-700'; }
+            if (type === 'info') { iconName = 'info'; accent = 'border-lapis-700 text-lapis-900'; }
+
+            toast.className = `pointer-events-auto flex items-center gap-3 bg-white px-4 py-3 rounded-2xl shadow-xl border-l-4 ${accent} text-xs font-bold animate-entry`;
+            toast.innerHTML = `<i data-lucide="${iconName}" class="w-4 h-4 flex-shrink-0"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(8px)';
+                toast.style.transition = 'all 0.25s ease';
+                setTimeout(() => toast.remove(), 250);
+            }, 2800);
+        }
+
+        function createToastContainer() {
+            const div = document.createElement('div');
+            div.id = 'toast-container';
+            div.className = 'fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0';
+            document.body.appendChild(div);
+            return div;
+        }
+    </script>
+</body>
+</html><script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="fa65eb9c-9686-4596-b293-e9d9437fcde1" data-app-host="app.netlify.com" data-account-tier="free"></script>
